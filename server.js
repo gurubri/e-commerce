@@ -1,9 +1,7 @@
 const app = require("./app.js");
-const dotenv = require("dotenv");
+
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary");
-dotenv.config();
-const path = require("path");
 
 mongoose.connect(
   process.env.DB_URI,
@@ -16,6 +14,8 @@ mongoose.connect(
     console.log("Database connected");
   }
 );
+
+if (process.env.NODE_ENV !== "PRODUCTION") require("dotenv").config();
 
 process.on("uncaughtException", (err) => {
   console.log("Error:" + err.message);

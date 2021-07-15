@@ -6,7 +6,7 @@
 
  
 # production
-/client/build
+
 
 # misc
 /.env
